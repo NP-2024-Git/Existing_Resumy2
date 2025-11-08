@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="Random junk/logo.png">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <title>Potato Portfolio: AmirAli Noori</title>
+  <style>
+    html, body {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      background: url("Random junk/Bg1.jpg") center/cover;
+      font-family: sans-serif;
+      color: white;
+    }
+    .left-panel {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 250px;
+      background-color: rgba(255, 255, 255, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 20px;
+      backdrop-filter: blur(8px);
+      box-sizing: border-box;
+      z-index: 10;
+    }
+    .left-panel img {
+      width: 140px;
+      height: auto;
+      object-fit: contain;
+      margin-bottom: 20px;
+    }
+    .content {
+      margin-left: 250px;
+      padding: 40px;
+      box-sizing: border-box;
+      overflow-y: auto;
+      min-height: 100vh;
+    }
+    .container {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 20px 0;
+    }
+    .potato {
+      width: 350px;
+      padding: 10px;
+      border: 5px solid gray;
+      margin: 0 0 20px 0;
+      background: rgba(0,0,0,0.25);
+      transition: box-shadow 0.3s;
+      overflow: visible;
+      min-height: 0;
+      height: auto;
+      box-sizing: border-box;
+    }
+    .recent-projects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .box-button {
+      cursor: pointer;
+      border: 4px solid black;
+      background-color: gray;
+      padding-bottom: 10px;
+      transition: 0.1s ease-in-out;
+      user-select: none;
+    }
+    .button {
+      background-color: #dddddd;
+      border: 4px solid #fff;
+      padding: 3px 8px;
+      color: #000;
+      text-align: center;
+      font-size: 1em;
+      font-weight: bold;
+      border-radius: 7px;
+    }
+    .button span {
+      font-size: 1.2em;
+      letter-spacing: 1px;
+    }
+    .box-button:active {
+      padding: 0;
+      margin-bottom: 10px;
+      transform: translateY(10px);
+    }
+  
+    @keyframes drow1 {
+      0% {height: 0;}
+      100% {height: 100px;}
+    }
+    @keyframes drow2 {
+      0% {width: 0; opacity: 0;}
+      10% {opacity: 0;}
+      11% {opacity: 1;}
+      100% {width: 120px;}
+    }
+    @keyframes drow3 {
+      0% {width: 0;}
+      100% {width: 80px;}
+    }
+    @keyframes drow4 {
+      0% {height: 0;}
+      100% {height: 120px;}
+    }
+    @keyframes drow5 {
+      0% {width: 0;}
+      100% {width: 124px;}
+    }
+    @media (max-width: 900px) {
+      .left-panel {
+        position: static;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        backdrop-filter: blur(5px);
+      }
+      .content {
+        margin-left: 0;
+        padding: 10px;
+      }
+      .recent-projects, .potato {
+        width: 100%;
+        flex-direction: column;
+      }
+    }
+    /* From Uiverse.io by Ashon-G */ 
+.uiverse {
+  --duration: 7s;
+  --easing: linear;
+  --c-color-1: rgba(255, 163, 26, 0.7);
+  --c-color-2: #1a23ff;
+  --c-color-3: #e21bda;
+  --c-color-4: rgba(255, 232, 26, 0.7);
+  --c-shadow: rgba(255, 223, 87, 0.5);
+  --c-shadow-inset-top: rgba(255, 223, 52, 0.9);
+  --c-shadow-inset-bottom: rgba(255, 250, 215, 0.8);
+  --c-radial-inner: #ffd215;
+  --c-radial-outer: #fff172;
+  --c-color: #fff;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  outline: none;
+  position: relative;
+  cursor: pointer;
+  border: none;
+  display: table;
+  border-radius: 24px;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  color: var(--c-color);
+  background: radial-gradient(
+    circle,
+    var(--c-radial-inner),
+    var(--c-radial-outer) 80%
+  );
+  box-shadow: 0 0 14px var(--c-shadow);
+}
+
+.uiverse:before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 24px;
+  box-shadow:
+    inset 0 3px 12px var(--c-shadow-inset-top),
+    inset 0 -3px 4px var(--c-shadow-inset-bottom);
+}
+
+.uiverse .wrapper {
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  overflow: hidden;
+  border-radius: 24px;
+  min-width: 132px;
+  padding: 12px 0;
+}
+
+.uiverse .wrapper span {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+}
+
+.uiverse:hover {
+  --duration: 1400ms;
+}
+
+.uiverse .wrapper .circle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  filter: blur(var(--blur, 8px));
+  background: var(--background, transparent);
+  transform: translate(var(--x, 0), var(--y, 0)) translateZ(0);
+  animation: var(--animation, none) var(--duration) var(--easing) infinite;
+}
+
+.uiverse .wrapper .circle.circle-1,
+.uiverse .wrapper .circle.circle-9,
+.uiverse .wrapper .circle.circle-10 {
+  --background: var(--c-color-4);
+}
+
+.uiverse .wrapper .circle.circle-3,
+.uiverse .wrapper .circle.circle-4 {
+  --background: var(--c-color-2);
+  --blur: 14px;
+}
+
+.uiverse .wrapper .circle.circle-5,
+.uiverse .wrapper .circle.circle-6 {
+  --background: var(--c-color-3);
+  --blur: 16px;
+}
+
+.uiverse .wrapper .circle.circle-2,
+.uiverse .wrapper .circle.circle-7,
+.uiverse .wrapper .circle.circle-8,
+.uiverse .wrapper .circle.circle-11,
+.uiverse .wrapper .circle.circle-12 {
+  --background: var(--c-color-1);
+  --blur: 12px;
+}
+
+.uiverse .wrapper .circle.circle-1 {
+  --x: 0;
+  --y: -40px;
+  --animation: circle-1;
+}
+
+.uiverse .wrapper .circle.circle-2 {
+  --x: 92px;
+  --y: 8px;
+  --animation: circle-2;
+}
+
+.uiverse .wrapper .circle.circle-3 {
+  --x: -12px;
+  --y: -12px;
+  --animation: circle-3;
+}
+
+.uiverse .wrapper .circle.circle-4 {
+  --x: 80px;
+  --y: -12px;
+  --animation: circle-4;
+}
+
+.uiverse .wrapper .circle.circle-5 {
+  --x: 12px;
+  --y: -4px;
+  --animation: circle-5;
+}
+
+.uiverse .wrapper .circle.circle-6 {
+  --x: 56px;
+  --y: 16px;
+  --animation: circle-6;
+}
+
+.uiverse .wrapper .circle.circle-7 {
+  --x: 8px;
+  --y: 28px;
+  --animation: circle-7;
+}
+
+.uiverse .wrapper .circle.circle-8 {
+  --x: 28px;
+  --y: -4px;
+  --animation: circle-8;
+}
+
+.uiverse .wrapper .circle.circle-9 {
+  --x: 20px;
+  --y: -12px;
+  --animation: circle-9;
+}
+
+.uiverse .wrapper .circle.circle-10 {
+  --x: 64px;
+  --y: 16px;
+  --animation: circle-10;
+}
+
+.uiverse .wrapper .circle.circle-11 {
+  --x: 4px;
+  --y: 4px;
+  --animation: circle-11;
+}
+
+.uiverse .wrapper .circle.circle-12 {
+  --blur: 14px;
+  --x: 52px;
+  --y: 4px;
+  --animation: circle-12;
+}
+
+@keyframes circle-1 {
+  33% {
+    transform: translate(0px, 16px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(12px, 64px) translateZ(0);
+  }
+}
+
+@keyframes circle-2 {
+  33% {
+    transform: translate(80px, -10px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(72px, -48px) translateZ(0);
+  }
+}
+
+@keyframes circle-3 {
+  33% {
+    transform: translate(20px, 12px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(12px, 4px) translateZ(0);
+  }
+}
+
+@keyframes circle-4 {
+  33% {
+    transform: translate(76px, -12px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(112px, -8px) translateZ(0);
+  }
+}
+
+@keyframes circle-5 {
+  33% {
+    transform: translate(84px, 28px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(40px, -32px) translateZ(0);
+  }
+}
+
+@keyframes circle-6 {
+  33% {
+    transform: translate(28px, -16px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(76px, -56px) translateZ(0);
+  }
+}
+
+@keyframes circle-7 {
+  33% {
+    transform: translate(8px, 28px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(20px, -60px) translateZ(0);
+  }
+}
+
+@keyframes circle-8 {
+  33% {
+    transform: translate(32px, -4px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(56px, -20px) translateZ(0);
+  }
+}
+
+@keyframes circle-9 {
+  33% {
+    transform: translate(20px, -12px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(80px, -8px) translateZ(0);
+  }
+}
+
+@keyframes circle-10 {
+  33% {
+    transform: translate(68px, 20px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(100px, 28px) translateZ(0);
+  }
+}
+
+@keyframes circle-11 {
+  33% {
+    transform: translate(4px, 4px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(68px, 20px) translateZ(0);
+  }
+}
+
+@keyframes circle-12 {
+  33% {
+    transform: translate(56px, 0px) translateZ(0);
+  }
+
+  66% {
+    transform: translate(60px, -32px) translateZ(0);
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div class="left-panel">
+    <img src="Random junk/logo.png" alt="Logo">
+    <h3>Name: AmirAli Noori</h3>
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+      <img src="Random junk/Me.png" alt="Me" style="width:130px;height:140px;">
+    </div>
+    <a href="Doucuments/Resume.pdf">
+      <button class="uiverse">
+        <div class="wrapper">
+          <span>Download resume</span>
+          <div class="circle circle-12"></div>
+          <div class="circle circle-11"></div>
+          <div class="circle circle-10"></div>
+          <div class="circle circle-9"></div>
+          <div class="circle circle-8"></div>
+          <div class="circle circle-7"></div>
+          <div class="circle circle-6"></div>
+          <div class="circle circle-5"></div>
+          <div class="circle circle-4"></div>
+          <div class="circle circle-3"></div>
+          <div class="circle circle-2"></div>
+          <div class="circle circle-1"></div>
+        </div>  
+      </button>
+    </a>
+    
+    <div style="margin-top: auto;">
+      <h4>Rezno Teams.</h4>
+    </div>
+  </div>
+
+  <div class="content">
+    <h1>Hello, I’m AmirAli Noori 👋</h1>
+    <p>I am a 13-year-old from Iran who enjoys coding, animation, and video editing.</p>
+    <h3 style="text-align:center;">What I can do:</h3>
+    <div style="display:flex; flex-wrap:wrap; gap:10px;">
+      <img src="Videos/Coding.gif" alt="Coding animation" style="width:80px;height:80px;">
+      <img src="Videos/Youtube.gif" alt="YouTube animation" style="width:80px;height:80px;">
+      <img src="Videos/Ui.gif" alt="UI animation" style="width:80px;height:80px;">
+      <img src="Videos/Coding.gif" alt="Coding animation" style="width:80px;height:80px;">
+      <img src="Videos/Youtube.gif" alt="YouTube animation" style="width:80px;height:80px;">
+      <img src="Videos/Ui.gif" alt="UI animation" style="width:80px;height:80px;">
+      <img src="Videos/Coding.gif" alt="Coding animation" style="width:80px;height:80px;">
+      <img src="Videos/Youtube.gif" alt="YouTube animation" style="width:80px;height:80px;">
+      <img src="Videos/Ui.gif" alt="UI animation" style="width:80px;height:80px;">
+      <img src="Videos/Coding.gif" alt="Coding animation" style="width:80px;height:80px;">
+      <img src="Videos/Youtube.gif" alt="YouTube animation" style="width:80px;height:80px;">
+      <img src="Videos/Ui.gif" alt="UI animation" style="width:80px;height:80px;">
+      <img src="Videos/Coding.gif" alt="Coding animation" style="width:80px;height:80px;">
+    </div>
+    <br><br>
+    <div id="00io">
+      <div>
+        <span><img src="Random junk/Html.png" alt="HTML Skill" style="width:30px;height:30px;"></span>
+        <span><h4 style="display: inline; margin-left:0px;">Html:</h4></span>
+        <div class="w3-light-grey w3-round-xlarge">
+          <div class="w3-container w3-green w3-round-xlarge" style="width:80%">80%</div>
+        </div>
+      </div>
+      <div>
+        <span><img src="Random junk/Css.png" alt="CSS Skill" style="width:30px;height:30px;"></span>
+        <span><h4 style="display: inline; margin-left:0px;">Css:</h4></span>
+        <div class="w3-light-grey w3-round-xlarge">
+          <div class="w3-container w3-blue w3-round-xlarge" style="width:60%">80%</div>
+        </div>
+      </div>
+      <div>
+        <span><img src="Random junk/Sql.png" alt="SQL Skill" style="width:30px;height:30px;"></span>
+        <span><h4 style="display: inline; margin-left:0px;">Sql:</h4></span>
+        <div class="w3-light-grey w3-round-xlarge">
+          <div class="w3-container w3-red w3-round-xlarge" style="width:50%">50%</div>
+        </div>
+      </div>
+      <div>
+        <span><img src="Random junk/Figma.png" alt="Figma Skill" style="width:30px;height:30px;"></span>
+        <span><h4 style="display: inline; margin-left:0px;">Figma:</h4></span>
+        <div class="w3-light-grey w3-round-xlarge">
+          <div class="w3-container w3-pink w3-round-xlarge" style="width:60%">60%</div>
+        </div>
+      </div>
+      <div>
+        <span><img src="Random junk/C#.png" alt="C# Skill" style="width:30px;height:30px;"></span>
+        <span><h4 style="display: inline; margin-left:0px;">C# & WebAPI:</h4></span>
+        <div class="w3-light-grey w3-round-xlarge">
+          <div class="w3-container w3-blue w3-round-xlarge" style="width:60%">60%</div>
+        </div>
+      </div>
+      <div>
+        <span><img src="Random junk/Animate.png" alt="Animate CC Skill" style="width:30px;height:30px;"></span>
+        <span><h4 style="display: inline; margin-left:0px;">Animate CC:</h4></span>
+        <div class="w3-light-grey w3-round-xlarge">
+          <div class="w3-container w3-teal w3-round-xlarge" style="width:70%">70%</div>
+        </div>
+      </div>
+      <div>
+        <span><img src="Random junk/PrimerPro.png" alt="Premiere Pro Skill" style="width:30px;height:30px;"></span>
+        <span><h4 style="display: inline; margin-left:0px;">Premiere Pro:</h4></span>
+        <div class="w3-light-grey w3-round-xlarge">
+          <div class="w3-container w3-red w3-round-xlarge" style="width:50%">50%</div>
+        </div>
+      </div>
+      <div>
+        <span><img src="Random junk/Js.png" alt="JavaScript Skill" style="width:30px;height:30px;"></span>
+        <span><h4 style="display: inline; margin-left:0px;">JavaScript:</h4></span>
+        <div class="w3-light-grey w3-round-xlarge">
+          <div class="w3-container w3-red w3-round-xlarge" style="width:50%">50%</div>
+        </div>
+      </div>
+      <div>
+        <span><img src="Random junk/Github.png" alt="Github Skill" style="width:30px;height:30px;"></span>
+        <span><h4 style="display: inline; margin-left:0px;">Github & Git:</h4></span>
+        <div class="w3-light-grey w3-round-xlarge">
+          <div class="w3-container w3-green w3-round-xlarge" style="width:90%">90%</div>
+        </div>
+      </div>
+    </div>
+    <br><br>
+    <h3 style="text-align:center;">My recent projects:</h3>
+    <div class="recent-projects">
+      <div class="potato">
+        <img src="Immages/NP2024.png" width="100%" alt="NooriPlayer2024 cover">
+        <details>
+          <summary>NooriPlayer2024</summary>
+          <p>A site for when I was a YouTuber and my subscribers visited there.</p>
+          <a href="https://github.com/NP-2024-Git/mysite">
+            <div class="box-button">
+              <div class="button"><span>Enter project</span></div>
+            </div>
+          </a>
+        </details>
+      </div>
+      <div class="potato">
+        <img src="Immages/A.M.K.png" width="100%" alt="A.M.K Site cover">
+        <details>
+          <summary>A.M.K site</summary>
+          <p>A site for my school to help students improve their academic performance.</p>
+          <a href="https://github.com/NP-2024-Git/AMK">
+            <div class="box-button">
+              <div class="button"><span>Enter project</span></div>
+            </div>
+          </a>
+        </details>
+      </div>
+      <div class="potato">
+        <img src="Immages/Xd-Os.png" width="100%" alt="Xd-Os Cover">
+        <details>
+          <summary>Xd-Os</summary>
+          <p>A site for the YouTuber [المورز ایکس] who created the horror Windows OS series.</p>
+          <a href="https://github.com/NP-2024-Git/alborzxd">
+            <div class="box-button">
+              <div class="button"><span>Enter project</span></div>
+            </div>
+          </a>
+        </details>
+      </div>
+      <div class="potato">
+        <img src="Immages/Vid6.png" width="100%" alt="Video cover">
+        <details>
+          <summary>Video [My first crush]</summary>
+          <p>A video on my YouTube channel.</p>
+          <a href="https://www.youtube.com/watch?v=ukwcuiGocxY">
+            <div class="box-button">
+              <div class="button"><span>Enter project</span></div>
+            </div>
+          </a>
+        </details>
+      </div>
+      <div class="potato">
+        <img src="Immages/Beep.png" width="100%" alt="Beep program cover">
+        <details>
+          <summary>The Beep program</summary>
+          <p>A program I built after learning a new fact from C#.</p>
+          <a href="https://github.com/NP-2024-Git/Beep_Cs">
+            <div class="box-button">
+              <div class="button"><span>Enter project</span></div>
+            </div>
+          </a>
+        </details>
+      </div>
+      <div class="potato">
+        <img src="Immages/Void.png" width="100%" alt="Void shop cover">
+        <details>
+          <summary>The Void Shop</summary>
+          <p>A site for advertising our shop in a school competition.</p>
+          <a href="https://github.com/NP-2024-Git/VOID-shop">
+            <div class="box-button">
+              <div class="button"><span>Enter project</span></div>
+            </div>
+          </a>
+        </details>
+      </div>
+    </div>
+    <h3 style="text-align:center;">My sosials:</h3>
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+      <div class="Contacting" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: fit-content; margin: 30px auto; padding: 20px 40px; background: rgba(255,255,255,0.13); backdrop-filter: blur(10px); border-radius: 18px; box-shadow: 0 8px 24px rgba(0,0,0,0.10);">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+          <span><img src="Random junk/Phone.png" alt="Phone icon" style="width:30px;height:30px;"></span>
+          <span><h4 style="display: inline; margin-left:0px;">Phone number:</h4></span>
+          <p style="margin:0;">09011083220</p>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+          <span><img src="Random junk/Ettah.png" alt="Ettah icon" style="width:30px;height:30px;"></span>
+          <span><h4 style="display: inline; margin-left:0px;">Ettah number:</h4></span>
+          <p style="margin:0;">09360140688</p>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+          <span><img src="Random junk/Utube.png" alt="Youtube icon" style="width:30px;height:30px;"></span>
+          <span><h4 style="display: inline; margin-left:0px;">Youtube ID:</h4></span>
+          <p style="margin:0;">@S1mpl7_E8i5t1ng</p>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+          <span><img src="Random junk/Github.png" alt="Github icon" style="width:30px;height:30px;"></span>
+          <span><h4 style="display: inline; margin-left:0px;">Github:</h4></span>
+          <p style="margin:0;">@NP-2024-Git</p>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+          <img src="Random junk/Signiture.png" alt="Signature icon" style="width:300px;height:300px;">
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    if (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+    ) {
+      window.location.href = "Mobile.html";
+    }
+    </script>
+    
+</body>
+</html>
